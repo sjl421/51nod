@@ -1,3 +1,8 @@
+.idea/
+out/
+51nod.iml
+
+
 # Compiled class file
 *.class
 
