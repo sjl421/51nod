@@ -6,9 +6,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         while (sc.hasNext()){
-
-
-
+            System.out.println("hello 51nod!");
         }
+
+        System.out.println("hello 51nod!");
     }
 }
