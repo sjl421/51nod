@@ -2,6 +2,9 @@ import java.util.*;
 
 public class Solution {
 
+    /*
+    构造树,更新根节点. 一条边的两个节点,分别进行查找根节点. 如果他们的根节点相同,表示添加这条边会构成环.
+     */
     public static boolean checkCycle(Edge e, int[] path) {
         int aNode = e.getaNode();
         int bNode = e.getbNode();
