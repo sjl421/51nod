@@ -18,7 +18,7 @@ public class Solution {
             ans = ans.multiply(temp);
         }
 
-        System.out.println(ans.toString().length());
+        System.out.println(ans.toString());
 
     }
 }
