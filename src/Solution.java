@@ -10,15 +10,15 @@ public class Solution {
         Scanner sc = new Scanner(System.in);
 
         int number = sc.nextInt();
-        BigInteger ans = BigInteger.valueOf(1);
-        BigInteger temp;
+
+        double ans = 0.0D;
 
         for (int i=1; i<=number; ++i){
-            temp = BigInteger.valueOf(i);
-            ans = ans.multiply(temp);
+            ans += Math.log10(i * 1.0);
         }
+        ans++;
 
-        System.out.println(ans.toString().length());
+        System.out.println((int)ans);
 
     }
 }
