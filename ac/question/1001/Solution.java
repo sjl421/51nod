@@ -32,7 +32,7 @@ public class Solution {
             }
         }
         if (!hasResult) {
-            System.out.println("No Solution");
+            System.out.println("No Solution1009");
         }
     }
 }

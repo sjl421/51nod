@@ -13,7 +13,7 @@ public class Solution {
         String b = sc.next();
 
         System.out.println(Solution.editDistance(a, b));
-//        System.out.println(Solution.edit_distance(a.toCharArray(), b.toCharArray()));
+//        System.out.println(Solution1009.edit_distance(a.toCharArray(), b.toCharArray()));
     }
 
     public static int minOfThere(int x, int y, int z){

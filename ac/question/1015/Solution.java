@@ -22,7 +22,7 @@ public class Solution {
 
 
 //        for (int i=101; i<1000000; i++){
-//            if (i == Solution.calculateNumber(i)){
+//            if (i == Solution1009.calculateNumber(i)){
 //                System.out.print(i + ", ");
 //            }
 //        }
