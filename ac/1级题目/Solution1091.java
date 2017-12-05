@@ -13,36 +13,61 @@ public class Solution1091 {
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out), 1 << 16);
 
         int n = Integer.parseInt(bufferedReader.readLine());
-        int[] arr = new int[n];
+        Line[] shuzu = new Line[n];
         for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(bufferedReader.readLine());
+            String[] temp = bufferedReader.readLine().split("\\s+");
+            shuzu[i] = new Line(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]));
         }
-        Arrays.sort(arr);
+        Arrays.sort(shuzu);
 
-        boolean flag = false;
-        int i=0;
-        while (0 > arr[i]){
-            int j=i+1, k=n-1;
-            while (j < k){
-                if (0 == arr[i] + arr[j] + arr[k]){
-                    flag = true;
-                    bufferedWriter.write(arr[i] + " " + arr[j] + " " + arr[k] + " \n");
-                    bufferedWriter.flush();
-
-                    j++;
-                    k--;
-                }else if (0 > arr[i] + arr[j] + arr[k]){
-                    j++;
-                }else {
-                    k--;
-                }
+        int ans = 0, pre = 0;
+        for (int i = 0; i < n; i++) {
+            ans = Math.max(ans, Math.min(pre, shuzu[i].getEnd()) - shuzu[i].getStart());
+            if (pre < shuzu[i].getEnd()) {
+                pre = shuzu[i].getEnd();
             }
-            i++;
         }
 
-        if (!flag) {
-            bufferedWriter.write("No Solution\n");
-            bufferedWriter.flush();
+        bufferedWriter.write(ans + "\n");
+        bufferedWriter.flush();
+    }
+}
+
+class Line implements Comparable<Line> {
+    int start, end;
+
+    public Line() {
+    }
+
+    public Line(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+    public void setEnd(int end) {
+        this.end = end;
+    }
+
+    @Override
+    public int compareTo(Line o) {
+        if (start < o.getStart()) {
+            return -1;
+        } else if (start == o.getStart()) {
+            return 0;
+        } else {
+            return 1;
         }
     }
 }
