@@ -41,7 +41,7 @@ public class Solution1090 {
         }
 
         if (!flag) {
-            bufferedWriter.write("No Solution\n");
+            bufferedWriter.write("No Solution1010\n");
             bufferedWriter.flush();
         }
     }
