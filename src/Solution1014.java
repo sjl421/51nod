@@ -5,7 +5,7 @@ import java.io.*;
  * @desc
  * @date 2017/11/29
  */
-public class Solution1010 {
+public class Solution1014 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in), 1 << 16);

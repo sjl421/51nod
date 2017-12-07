@@ -24,7 +24,7 @@ public class Solution1080 {
         }
 
         if (!hasResult){
-            bufferedWriter.write("No Solution1010\n");
+            bufferedWriter.write("No Solution\n");
             bufferedWriter.flush();
         }
 
