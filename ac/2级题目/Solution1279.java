@@ -15,41 +15,28 @@ public class Solution1279 {
         int depthOfWell = Integer.parseInt(temp[0]);
         int numberOfPlates = Integer.parseInt(temp[1]);
 
-        int[] widthOfWell = new int[depthOfWell];
-        int[] widthOfPlates = new int[numberOfPlates];
+        int[] widthOfWell = new int[depthOfWell + 1];
+        widthOfWell[0] = Integer.MAX_VALUE;
 
-        for (int i = 0; i < depthOfWell; i++) {
+        for (int i = 1; i <= depthOfWell; i++) {
             widthOfWell[i] = Integer.parseInt(bufferedReader.readLine());
-        }
-        for (int i = 0; i < numberOfPlates; i++) {
-            widthOfPlates[i] = Integer.parseInt(bufferedReader.readLine());
+            widthOfWell[i] = Math.min(widthOfWell[i - 1], widthOfWell[i]);
         }
 
         int ans = 0;
-        int currentDepthOfWell = depthOfWell;
+
         for (int i = 0; i < numberOfPlates; i++) {
-            if (0 >= currentDepthOfWell) {
-                break;
+            int widthOfPlate = Integer.parseInt(bufferedReader.readLine());
+
+            while (widthOfPlate > widthOfWell[depthOfWell]) {
+                depthOfWell--;
             }
 
-            for (int j = 0; j < currentDepthOfWell; ) {
-                if (widthOfPlates[i] <= widthOfWell[j]) {
-                    if (j == currentDepthOfWell - 1) {
-                        currentDepthOfWell = currentDepthOfWell - 1;
-                        ans++;
-                        break;
-                    }
-
-                    j++;
-                    continue;
-                } else {
-                    currentDepthOfWell = j - 1;
-                    if (currentDepthOfWell >= 0) {
-                        ans++;
-                    }
-                    break;
-                }
+            if (depthOfWell > 0) {
+                ans++;
+                depthOfWell--;
             }
+
         }
 
         bufferedWriter.write(ans + "\n");
