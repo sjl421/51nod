@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Stack;
 
 /**
  * @author mayuan
@@ -12,21 +13,24 @@ public class Solution1138 {
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(bufferedReader.readLine());
-        n *= 2;
-        boolean hasResult = false;
 
-        for (int i = (int) Math.sqrt(n); i >= 2; i--) {
-            if (n % i == 0 && (n / i - (i - 1)) % 2 == 0) {
-                bufferedWriter.write((n / i - (i - 1)) / 2 + "\n");
-                bufferedWriter.flush();
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 1; n > 0; ) {
+            n -= i++;
 
-                hasResult = true;
+            if (0 == n % i && 0 != n) {
+                stack.push(n / i);
             }
         }
 
-        if (!hasResult) {
+        if (stack.isEmpty()) {
             bufferedWriter.write("No Solution\n");
             bufferedWriter.flush();
+        } else {
+            while (!stack.isEmpty()) {
+                bufferedWriter.write(stack.pop() + "\n");
+                bufferedWriter.flush();
+            }
         }
 
     }
