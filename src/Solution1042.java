@@ -11,9 +11,13 @@ public class Solution1042 {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in), 1 << 16);
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out), 1 << 16);
 
-        String[] temp = bufferedReader.readLine().split("\\s+");
+//        String[] temp = bufferedReader.readLine().split("\\s+");
+//
+//        long a = Long.parseLong(temp[0]), b = Long.parseLong(temp[1]);
 
-        long a = Long.parseLong(temp[0]), b = Long.parseLong(temp[1]);
+        char[] temp = {'a', 'b'};
+        bufferedWriter.write(String.copyValueOf(temp));
+        bufferedWriter.flush();
 
 
 
