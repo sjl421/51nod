@@ -7,6 +7,11 @@ import java.io.*;
  */
 public class Solution1126 {
 
+    /**
+     * 存在循环节，只需要找到循环节即可。判断是否为循环节的方法是当连着两项为1时，即找到了循环节。
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in), 1 << 16);
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out), 1 << 16);
@@ -32,6 +37,9 @@ public class Solution1126 {
                 }
             }
 
+            /**
+             * 刚好为循环节的倍数时
+             */
             f[0] = f[i - 2];
             bufferedWriter.write(f[n % (i - 2)] + "\n");
             bufferedWriter.flush();
